@@ -12,7 +12,7 @@ sed -i -e 's/_PASSWORD_/somecomplexpassword/g' security.groovy
 
 Build your container with the following command
 ```
-docker build -t jenkins:lts-automated
+docker build -t jenkins:lts-automated .
 ```
 
 Before running your container you will need to create a docker volume for the Jenkins application data
