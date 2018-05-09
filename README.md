@@ -4,18 +4,18 @@ A docker container which automates the setup of Jenkins LTS with a user account 
 
 ## Getting Started
 
+Set the default username and password via the following commands
+```
+sed -i -e 's/_USERNAME_/admin/g' security.groovy
+sed -i -e 's/_PASSWORD_/somecomplexpassword/g' security.groovy
+```
+
 Build your container with the following command
 ```
-docker build -t jenkins:lts-automated .
+docker build -t jenkins:lts-automated
 ```
 
-Before running your container you will need to provison secrets for the username and password
-```
-echo "admin" | docker secret create jenkins-user -
-echo "your_password" | docker secret create jenkins-pass -
-```
-
-Then create a docker volume for the Jenkins application data
+Before running your container you will need to create a docker volume for the Jenkins application data
 ```
 docker volume create jenkins_home
 ```
