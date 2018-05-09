@@ -6,7 +6,7 @@ A docker container which automates the setup of Jenkins LTS with a user account 
 
 Build your container with the following command
 ```
-docker build -t jenkins:lts-automated
+docker build -t jenkins:lts-automated .
 ```
 
 Before running your container you will need to provison secrets for the username and password
