@@ -23,7 +23,6 @@ github-branch-source
 github
 gradle
 handlebars
-jackson2-api
 jquery-detached
 jsch
 junit
