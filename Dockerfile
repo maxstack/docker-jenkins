@@ -12,7 +12,7 @@ USER root
 RUN apk add --no-cache docker openrc shadow sudo \
  && rc-update add docker boot
 
-RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/docker" >> /etc/sudoers
 RUN echo "alias docker='sudo docker '" >> /etc/profile
 
 user jenkins
