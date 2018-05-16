@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts-alpine
- 
+
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
  
 COPY security.groovy /var/jenkins_home/init.groovy.d/
@@ -9,10 +9,10 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 USER root
 
-RUN apk add --no-cache docker openrc shadow \
- && rc-update add docker boot \
- && usermod -aG docker jenkins \
- && touch /var/run/docker.sock \
- && chmod 777 /var/run/docker.sock
+RUN apk add --no-cache docker openrc shadow sudo \
+ && rc-update add docker boot
+
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN echo "alias docker='sudo docker '" >> /var/jenkins_home/.bashrc
 
 user jenkins
