@@ -19,3 +19,13 @@ Then run with
 ```
 docker run -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped --name jenkins -p 8080:8080 -p 50000:50000 jenkins:lts-automated
 ```
+
+
+## Adding plugins to the build
+
+If you would like to add new plugins to the image, run this container and install the desired plugins, then generate a new list using the following command:
+```
+curl -s -k "http://_USERNAME_:_PASSWORD_@localhost:8080/pluginManager/api/json?depth=1" | jq -r '.plugins[].shortName' | tee plugins.txt
+```
+
+Then update the plugins.txt inside this repo and rebuild.
