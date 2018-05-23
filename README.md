@@ -1,6 +1,6 @@
-# Jenkins LTS - automated setup
+# Jenkins LTS - automated setup with Docker inside Docker
 
-A docker container which automates the setup of Jenkins LTS with a user account and recommended plugins.
+A docker container which automates the setup of Jenkins LTS with a user account and recommended plugins, and access to the host's docker engine.
 
 ## Getting Started
 
@@ -17,5 +17,5 @@ docker build -t jenkins:lts-automated .
 
 Then run with
 ```
-docker run -d -v jenkins_home:/var/jenkins_home --restart unless-stopped --name jenkins -p 8080:8080 -p 50000:50000 jenkins:lts-automated
+docker run -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --restart unless-stopped --name jenkins -p 8080:8080 -p 50000:50000 jenkins:lts-automated
 ```
