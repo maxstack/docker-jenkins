@@ -1,3 +1,4 @@
+git
 pipeline-model-api
 handy-uri-templates-2-api
 blueocean-pipeline-editor
@@ -13,7 +14,6 @@ blueocean-config
 workflow-api
 blueocean-events
 pam-auth
-git
 jenkins-design-language
 mapdb-api
 blueocean-pipeline-scm-api
@@ -48,7 +48,6 @@ antisamy-markup-formatter
 cloudbees-bitbucket-branch-source
 structs
 ec2
-credentials
 jira
 blueocean-web
 ant
@@ -104,3 +103,6 @@ pipeline-model-definition
 credentials-binding
 blueocean-dashboard
 node-iterator-api
+extensible-choice-parameter
+copyartifact
+ansicolor
