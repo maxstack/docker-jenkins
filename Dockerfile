@@ -12,8 +12,10 @@ USER root
 ARG GID
 RUN addgroup -g $GID docker
 
-RUN apk add --no-cache docker openrc shadow sudo \
+RUN apk add --no-cache python py-pip docker openrc shadow sudo \
  && rc-update add docker boot
+
+RUN pip install awscli && apk --purge -v del py-pip
 
 RUN gpasswd -a jenkins docker
 RUN echo "jenkins ALL=(ALL) NOPASSWD: /usr/bin/docker" >> /etc/sudoers
