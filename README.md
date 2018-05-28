@@ -12,12 +12,12 @@ sed -i -e 's/_PASSWORD_/somecomplexpassword/g' security.groovy
 
 Build your container with the following command
 ```
-docker build -t jenkins:lts-automated .
+docker build --build-arg GID=$(grep docker /etc/group | cut -d: -f3) -t jenkins:lts-automated .
 ```
 
 Then run with
 ```
-docker run -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --build-arg GID=$(grep docker /etc/group | cut -d: -f3) --restart unless-stopped --name jenkins -p 8080:8080 -p 50000:50000 jenkins:lts-automated
+docker run -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --build-arg --restart unless-stopped --name jenkins -p 8080:8080 -p 50000:50000 jenkins:lts-automated
 ```
 
 
