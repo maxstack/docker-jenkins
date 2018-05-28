@@ -9,7 +9,7 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 
 USER root
 
-ARG GID=994
+ARG GID
 RUN addgroup -g $GID docker
 
 RUN apk add --no-cache docker openrc shadow sudo \
