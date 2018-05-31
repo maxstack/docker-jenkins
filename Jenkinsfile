@@ -37,7 +37,7 @@ node {
       // assumes you have run docker login as the jenkins user on your host
       stage ('Push container') {
         ansiColor('xterm') {
-          sh 'docker push registry maxstack/jenkins:latest'
+          sh 'docker push maxstack/jenkins:latest'
         }
       }
 
